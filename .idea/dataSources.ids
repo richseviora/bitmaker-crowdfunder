@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="PostgreSQL - crowdfunder_development@localhost" uuid="7e67b53b-3b7a-4ba6-9a94-1ab716622d7a">
+  <data-source name="Rails crowdfunder: development" uuid="792d81a9-8e58-4a6b-93c3-c993a358b2ce">
     <database-info product="PostgreSQL" version="9.3.5" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.3 JDBC4 (build 1100)">
       <identifier-quote-string>&quot;</identifier-quote-string>
     </database-info>
@@ -18918,5 +18918,11 @@
         <parameter name="returnValue" sqlType="bool" precision="0" scale="0" nullable="true" jdbcType="-7" type="5" index="0"/>
       </prototype>
     </procedure>
+  </data-source>
+  <data-source name="Rails crowdfunder: test" uuid="57d0f8e5-04dc-483a-a786-ff44c4720551">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails crowdfunder: production" uuid="e477263f-89ef-44c8-836f-62d9f62d0b40">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>
