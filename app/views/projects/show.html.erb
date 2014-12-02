@@ -15,6 +15,11 @@
 				N/A (no user specified)
 			<% end %>
 	</li>
+    <li>
+  <% if current_user == @project.owner %>
+    <%= link_to "Edit Project", edit_project_path(@project) %>
+  <% end %>
+     </li>
 </ul>
 
 <h2>Rewards</h2>
@@ -23,6 +28,6 @@
 <ul>
 	<li>Title: <%= reward.title %></li>
 	<li>Description: <%= reward.description %></li>
-	<li>Amount: <%= reward.amount %></li>
+	<li>Amount: $<%= reward.amount %></li>
 </ul>
 <% end %>
