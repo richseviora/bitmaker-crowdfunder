@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+	before_action :require_login, except: :index
 	def index
 		@projects = Project.all
 	end
@@ -9,6 +10,8 @@ class ProjectsController < ApplicationController
 	end
 
 	def new
+		# you must be required to logged in to create a new projects.  You will be directed into the login page.
+		require_login
 		@project = Project.new
 	end
 
