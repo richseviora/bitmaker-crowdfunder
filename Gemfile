@@ -30,7 +30,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # User Sorcery for Authentication
-gem 'sorcery'
+gem 'sorcery', '0.8.6'
 
 # Use unicorn as the app server
 # gem 'unicorn'

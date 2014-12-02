@@ -135,7 +135,7 @@ DEPENDENCIES
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  sorcery
+  sorcery (= 0.8.6)
   spring
   turbolinks
   uglifier (>= 1.3.0)

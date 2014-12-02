@@ -1,8 +1,9 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :first_name
-      t.string :last_name
+      # <:null => false> prevents the field from being empty
+      t.string :first_name,       :null => false
+      t.string :last_name,        :null => false
       t.string :email,            :null => false
       t.string :crypted_password, :null => false
       t.string :salt,             :null => false
@@ -10,6 +11,6 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :users, :email, unique: true
+    add_index :email, unique: true
   end
 end
