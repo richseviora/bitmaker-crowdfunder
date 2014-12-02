@@ -9,10 +9,10 @@
 <body>
 <% if current_user %>
     Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", session_path %>
+    <%= link_to "Log out", sessions_path %>
 <% else %>
-    <%= link_to "Sign up", user_path %> or
-    <%= link_to "log in", session_path %>.
+    <%= link_to "Sign up", new_user_path %> or
+    <%= link_to "log in", new_session_path %>.
 <% end %>
 
 <%= yield %>

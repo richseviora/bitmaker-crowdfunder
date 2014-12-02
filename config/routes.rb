@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :projects
   end
-  resources :sessions, only: [:index, :create, :destroy]
+  resources :sessions, only: [:index, :create, :destroy, :new]
 
   resources :projects
 

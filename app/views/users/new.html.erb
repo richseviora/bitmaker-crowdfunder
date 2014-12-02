@@ -1,3 +1,5 @@
+<h1>Sign up for Crowd Funder!</h1>
+
 <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
         <div class="error_messages">
@@ -9,6 +11,7 @@
           </ul>
         </div>
     <% end %>
+
     <div class="field">
       <%= f.label :email %>
       <%= f.text_field :email %>
