@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
 	before_action :require_login, except: :index
+
+	# calls the user_ownership method for the :edit and :update commands to check to see if the user actually owns the project before they can see the edit page.
+	before_action :user_ownership, only: [:edit, :update]
+
 	def index
 		@projects = Project.all
 	end
@@ -43,9 +47,12 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-
-		#
-		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, rewards_attributes: [:title, :description, :amount])
+		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, rewards_attributes: [:title, :description, :amount, :id])
 	end
 
+	# this private method checks to see if the current user owns a project
+	def user_ownership
+		@project = Project.find(params[:id])
+		redirect_to project_path(@project) unless current_user == @project.owner
+	end
 end
