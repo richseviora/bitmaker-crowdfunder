@@ -1,0 +1,28 @@
+<%= link_to "Back", projects_path %>
+
+<h1><%= @project.name %></h1>
+
+<ul>
+	<li>Description: <%= @project.description %></li>
+	<li>Start Date: <%= @project.start_date %></li>
+	<li>End Date: <%= @project.end_date %></li>
+	<li>Funding Goal: $<%= @project.funding_goal %></li>
+	<li>Created By: 
+			<% if (@project.owner)  %>
+				<%= @project.owner.first_name %> 
+				<%= @project.owner.last_name %>
+			<% else %>
+				N/A (no user specified)
+			<% end %>
+	</li>
+</ul>
+
+<h2>Rewards</h2>
+
+<% @rewards.each do |reward| %>
+<ul>
+	<li>Title: <%= reward.title %></li>
+	<li>Description: <%= reward.description %></li>
+	<li>Amount: <%= reward.amount %></li>
+</ul>
+<% end %>
