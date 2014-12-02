@@ -42,3 +42,5 @@ gem 'sorcery', '0.8.6'
 # gem 'debugger', group: [:development, :test]
 
 gem 'faker'
+
+gem 'cocoon', '>= 1.2.0' # Cocoon to have variate number of nested forms

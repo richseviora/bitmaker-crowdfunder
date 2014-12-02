@@ -26,20 +26,12 @@
 
 	<h4>Rewards</h4>
 
-	<%= f.fields_for :rewards do |rwd| %>
-		<p>
-			<%= rwd.label :title %>
-			<%= rwd.text_field :title %>
-		</p>
-		<p>
-			<%= rwd.label :description %>
-			<%= rwd.text_area :description %>
-		</p>
-		<p>
-			<%= rwd.label :amount %>
-			<%= rwd.text_field :amount %>
-		</p>
-	<% end %>
+    <div id="rewards_container">
+        <%= f.fields_for :rewards do |rwd| %>
+            <%= render "reward_fields", f: rwd %>
+        <% end %>
+        <%= link_to_add_association "Add Reward", f, :rewards %>
+    </div>
 
 	<p>
 		<%= f.submit "Submit" %>
