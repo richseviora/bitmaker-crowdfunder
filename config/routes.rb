@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   root 'projects#index'
 
 
-  #ask Rich what this means
-  get 'login' => 'session#new', as: 'login'
-  get 'logout' => 'session#destroy', as: 'logout'
+  # create new routes called login/loutut that does a <sessions#new/sessions#destroy> - Yung Dai
+  get 'login' => 'sessions#new', as: 'login'
+  get 'logout' => 'sessions#destroy', as: 'logout'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
