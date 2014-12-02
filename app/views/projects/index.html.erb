@@ -1,0 +1,9 @@
+<%= link_to "New Project", new_project_path %>
+
+<h1>Projects</h1>
+
+<ul>
+	<% @projects.each do |project| %>
+	<li><%= link_to project.name, "/projects/#{project.id}" %></li>
+	<% end %>
+</ul>

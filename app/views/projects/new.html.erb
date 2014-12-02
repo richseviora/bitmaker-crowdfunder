@@ -1,0 +1,47 @@
+<%= link_to "Back", projects_path %>
+
+<h1>New Project</h1>
+
+<%= form_for(@project) do |f| %>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</p>
+	<p>
+		<%= f.label :start_date %>
+		<%= f.date_select :start_date %>
+	</p>
+	<p>
+		<%= f.label :end_date %>
+		<%= f.date_select :end_date %>
+	</p>
+	<p>
+		<%= f.label :funding_goal %>
+		<%= f.text_field :funding_goal %>
+	</p>
+
+	<h4>Rewards</h4>
+
+	<%= f.fields_for :rewards do |rwd| %>
+		<p>
+			<%= rwd.label :title %>
+			<%= rwd.text_field :title %>
+		</p>
+		<p>
+			<%= rwd.label :description %>
+			<%= rwd.text_area :description %>
+		</p>
+		<p>
+			<%= rwd.label :amount %>
+			<%= rwd.text_field :amount %>
+		</p>
+	<% end %>
+
+	<p>
+		<%= f.submit "Submit" %>
+	</p>
+<% end %>
