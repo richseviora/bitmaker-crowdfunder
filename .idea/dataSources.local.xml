@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - crowdfunder_development@localhost" uuid="7e67b53b-3b7a-4ba6-9a94-1ab716622d7a">
-      <secret-storage>master_key</secret-storage>
-      <schema-pattern>crowdfunder_development.*</schema-pattern>
-      <default-schemas>crowdfunder_development.*</default-schemas>
-    </data-source>
+    <data-source name="Rails crowdfunder: development" uuid="792d81a9-8e58-4a6b-93c3-c993a358b2ce" />
+    <data-source name="Rails crowdfunder: test" uuid="57d0f8e5-04dc-483a-a786-ff44c4720551" />
+    <data-source name="Rails crowdfunder: production" uuid="e477263f-89ef-44c8-836f-62d9f62d0b40" />
   </component>
 </project>

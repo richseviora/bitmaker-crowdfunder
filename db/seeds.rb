@@ -7,16 +7,31 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-u = User.create(first_name: 'Rich', last_name: 'Seviora', email: 'richard.seviora@gmail.com', password: 'bob')
+if Rails.env == 'development'
 
-p = Project.new
-p.name = 'Bob'
-p.description = 'Desc'
-p.start_date = Date.new(2014,12,12)
-p.end_date = Date.new(2014,12,31)
-p.funding_goal = 50000
-p.owner = u
-p.save
 
-reward = Reward.create(title: 'First Reward', description: 'description here', amount: 10, project: Project.first)
-pledge = Pledge.create(amount: 10, reward: Reward.first, user: User.first)
+  10.times do
+    User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '12345')
+  end
+
+  10.times do
+    random_user = User.offset(rand(User.count)).first
+    start_lower = Date.new(2014, 12, 31)
+    start_upper = Date.new(2015, 5, 31)
+    end_lower = Date.new(2015, 6, 1)
+    end_upper = Date.new(2015, 12, 31)
+    Project.create(name: Faker::Commerce.product_name, description: Faker::Company.bs, start_date: Faker::Date.between(start_lower, start_upper), end_date: Faker::Date.between(end_lower, end_upper), funding_goal: Faker::Number.positive(10000, 100000), owner: random_user)
+  end
+
+  Project.all.each do |project|
+    Faker::Number.between(1, 5).times do
+      project.rewards.create(title: Faker::Commerce.product_name, description: Faker::Company.bs, amount: Faker::Number.positive(1, project.funding_goal))
+    end
+  end
+
+  100.times do
+    random_user = User.offset(rand(User.count)).first
+    random_reward = Reward.offset(rand(Reward.count)).first
+    random_user.pledges.create(amount: random_reward.amount, reward: random_reward)
+  end
+end
