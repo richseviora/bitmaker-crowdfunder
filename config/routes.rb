@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :projects
 
+  resources :pledges, only: [:create]
+
   root 'projects#index'
 
 

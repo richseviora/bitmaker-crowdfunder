@@ -34,5 +34,10 @@
       <li>Title: <%= reward.title %></li>
       <li>Description: <%= reward.description %></li>
       <li>Amount: $<%= reward.amount %></li>
+      <!-- After link is selected, for response sent by AJAX instead of by html add , remote: true -->
+      <% if current_user != @project.owner %>
+        <li><%= link_to "Select This Reward", pledges_path(reward_amount: reward.amount), method: :post %></li> 
+      <% end %>
+      
     </ul>
 <% end %>
