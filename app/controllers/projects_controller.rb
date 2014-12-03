@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
-		# @project.owner = "1" # Temporary until we have current_user
+		@project.owner = current_user # When you create new project, you will insert in the current_user ID as the @project.owner
 
 		if @project.save
 			redirect_to projects_path
