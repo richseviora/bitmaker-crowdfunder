@@ -10,6 +10,7 @@
   <li>Start Date: <%= @project.start_date %></li>
   <li>End Date: <%= @project.end_date %></li>
   <li>Funding Goal: $<%= @project.funding_goal %></li>
+  <li>Category: <%= @project.category.name %></li>
   <li>Created By:
     <% if @project.owner %>
         <%= @project.owner.first_name %>
