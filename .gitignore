@@ -20,3 +20,9 @@
 Gemfile.lock
 
 Gemfile.lock
+
+.idea/dataSources.xml
+
+.idea/crowdfunder.iml
+
+.idea/.generators
