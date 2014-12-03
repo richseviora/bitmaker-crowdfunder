@@ -3,7 +3,28 @@
 <h1>Projects</h1>
 
 <ul>
-	<% @projects.each do |project| %>
-	<li><%= link_to project.name, "/projects/#{project.id}" %></li>
-	<% end %>
+  <% @projects.each do |project| %>
+      <li><%= link_to project.name, "/projects/#{project.id}" %>
+        <% if project.owner == current_user %>
+            Pledged: <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %>, Days to
+            Completion: <%= distance_of_time_in_words_to_now(project.end_date) %>(
+            <%= (project.end_date.to_date - Date.current).to_i %> days)
+        <% end %>
+
+      </li>
+  <% end %>
 </ul>
+
+<% if current_user.pledges.size > 0 %>
+    <h3>Total Pledges <%= number_to_currency(current_user.pledges.sum(:amount), precision: 0) %></h3>
+    <ul>
+      <% current_user.projects.distinct.each do |project| %>
+          <li><%= link_to project.name, "/projects/#{project.id}" %> -
+            <% if project.pledges.where(user: current_user).size > 0 %>
+                You've
+                Pledged: <%= number_to_currency(project.pledges.where(user: current_user).sum('pledges.amount'), precision: 0)
+          %>
+            <% end %></li>
+      <% end %>
+    </ul>
+<% end %>
