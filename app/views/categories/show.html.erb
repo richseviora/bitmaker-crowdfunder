@@ -1,0 +1,6 @@
+<h2><%= @category.name %></h2>
+<ul>
+<% @category.projects.each do |project| %>
+    <li><%= link_to project.name, project_path(project) %></li>
+<% end %>
+</ul>
