@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
-		# @project.owner = "1" # Temporary until we have current_user
+		@project.owner = current_user # When you create new project, you will insert in the current_user ID as the @project.owner
 
 		if @project.save
 			redirect_to projects_path
@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, rewards_attributes: [:title, :description, :amount, :id, :_destroy])
+		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :category_id, rewards_attributes: [:title, :description, :amount, :id, :_destroy])
 	end
 
 	# this private method checks to see if the current user owns a project

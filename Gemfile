@@ -43,4 +43,5 @@ gem 'sorcery', '0.8.6'
 
 gem 'faker'
 
-gem 'cocoon', '>= 1.2.0' # Cocoon to have variate number of nested forms
+gem 'cocoon', '>= 1.2.0' # Cocoon to have various number of nested forms
+gem 'kaminari'
