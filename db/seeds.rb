@@ -19,8 +19,8 @@ if Rails.env == 'development'
   end_lower = Date.new(2015, 6, 1)
   end_upper = Date.new(2015, 12, 31)
 
-  50.times do
-    Category.create(name: Faker::Commerce.department)
+  50.times do |time|
+    Category.create(name: Faker::Commerce.department + time.to_s)
   end
 
   1000.times do
