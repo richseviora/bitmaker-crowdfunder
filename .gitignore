@@ -54,3 +54,5 @@ Gemfile.lock
 .idea/dataSources.xml
 
 .idea/crowdfunder.iml
+
+.idea/dataSources.local.xml
