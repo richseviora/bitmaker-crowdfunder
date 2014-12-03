@@ -1,6 +1,6 @@
-<%= link_to "New Project", new_project_path %>
-
 <h1>Projects</h1>
+
+<%= link_to "New Project", new_project_path %>
 
 <ul>
   <% @projects.each do |project| %>
@@ -15,7 +15,7 @@
   <% end %>
 </ul>
 
-<% if current_user.pledges.size > 0 %>
+<% if current_user && current_user.pledges.size > 0 %>
     <h3>Total Pledges <%= number_to_currency(current_user.pledges.sum(:amount), precision: 0) %></h3>
     <ul>
       <% current_user.projects.distinct.each do |project| %>
