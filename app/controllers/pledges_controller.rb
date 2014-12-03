@@ -5,7 +5,10 @@ class PledgesController < ApplicationController
 	end
 
 	def create
-		# @pledge = Pledge.new(pledge_params)
+		@pledge = Pledge.new(reward: Reward.find(params[:reward_id]))
+		@pledge.user = current_user
+		@pledge.amount = Reward.find(params[:reward_id]).amount
+		@pledge.save
 		# @pledge.amount = reward.amount	
 		# respond_to do |format|
 		# 	format.js { render text: 'Hi there' } #allows controller to respond in javascript
@@ -13,9 +16,6 @@ class PledgesController < ApplicationController
 		# end
 	end
 
-	private
-	def pledge_params
-		params.require(:pledge).permit(:reward_id) 
-	end
+	
 
 end
