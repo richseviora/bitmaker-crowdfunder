@@ -1,4 +1,4 @@
-<%= link_to "Back", projects_path %>
+
 
 <h1><%= @project.name %></h1>
 <% if @project.pledges.where(user: current_user).size > 0 %>
@@ -26,6 +26,8 @@
       <li><%= link_to "Edit Project", edit_project_path(@project) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Back", projects_path %>
 
 <h2>Rewards</h2>
 
