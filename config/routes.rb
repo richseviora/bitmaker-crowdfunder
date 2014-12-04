@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   root 'projects#index'
 
-
   # create new routes called login/loutut that does a <sessions#new/sessions#destroy> - Yung Dai
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'

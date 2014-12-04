@@ -1,9 +1,5 @@
 class PledgesController < ApplicationController
 
-	def new
-		@pledge = Pledge.new()
-	end
-
 	def create
 		@pledge = Pledge.new(reward: Reward.find(params[:reward_id]))
 		# ensure that the pledge user is the current user
@@ -12,12 +8,16 @@ class PledgesController < ApplicationController
 		@pledge.amount = Reward.find(params[:reward_id]).amount
 		@pledge.save
 
+<<<<<<< HEAD
 		 respond_to do |format|
 		 	format.js  #allows controller to respond in javascript
 		 	format.html { redirect_to project_url(params[:project_id]) } #allows controller to respond to html
 		 end
+=======
+		# respond_to do |format|
+  #     		format.html # index.html.erb
+  #     		format.js   # index.js.erb, allows controller to respond to JavaScript
+  #   	end
+>>>>>>> origin/mchau
 	end
-
-	
-
 end
