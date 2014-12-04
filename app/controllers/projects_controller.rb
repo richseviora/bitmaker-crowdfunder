@@ -12,10 +12,10 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 		@rewards = @project.rewards
 
-		respond_to do |format|
-			format.js  #allows controller to respond in javascript
-			format.html #allows controller to respond to html
-		end
+		# respond_to do |format|
+		# 	format.js { render text: 'Hi there' } #allows controller to respond in javascript
+		# 	format.html #allows controller to respond to html
+		# end
 	end
 
 	def edit
