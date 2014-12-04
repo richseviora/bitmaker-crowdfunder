@@ -24,12 +24,6 @@
           </div>
         </div>
  
-        <div class="row">
-          <div class="small-12 show-for-small"><br>
-            <img src="http://placehold.it/1000x600&text=For Small Screens"/>
-          </div>
-        </div>
- 
     </div>
   </div>
  
@@ -48,9 +42,19 @@
                 <%= project.description %>
                 
                 <% if project.owner == current_user %>
-                    <p>Pledged: <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %></p>
-                    <p>Days to Completion: <%= distance_of_time_in_words_to_now(project.end_date) %> (<%= (project.end_date.to_date - Date.current).to_i %> days)</p>
+                    <p>
+                      Pledged: 
+                      <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %>
+                       / 
+                      <%= number_to_currency(project.funding_goal) %>
+                    </p>
+                    <p>
+                      Days to Completion: 
+                      <%= distance_of_time_in_words_to_now(project.end_date) %> 
+                      (<%= (project.end_date.to_date - Date.current).to_i %> days)
+                    </p>
                 <% end %>
+
               </p>
             </div>
             <% end %>
