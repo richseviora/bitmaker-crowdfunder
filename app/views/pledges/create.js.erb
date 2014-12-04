@@ -1,2 +1,6 @@
-alert("I'm coming from rails; create.js.erb in pledges");
-// $("#individual_project").html("<%= j(render(:partial => '/projects/individual_project')) %>");
+// j is shorthand for escape_javascript
+// The following code will get the partial from projects/_individual_projects.html.erb
+// and force it to be rendered under HTML in the <div id="individual_project">
+
+$("#individual_project").html('<%= j render :partial => 'projects/individual_project' %>');
+//alert("I'm coming from rails; create.js.erb in pledges");
