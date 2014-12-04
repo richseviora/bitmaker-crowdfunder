@@ -13,8 +13,8 @@ class PledgesController < ApplicationController
 		@pledge.save
 
 		 respond_to do |format|
-		 	format.js { render text: 'Hi there' } #allows controller to respond in javascript
-		 	format.html #allows controller to respond to html
+		 	format.js  #allows controller to respond in javascript
+		 	format.html { redirect_to project_url(params[:project_id]) } #allows controller to respond to html
 		 end
 	end
 

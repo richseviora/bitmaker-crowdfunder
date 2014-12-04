@@ -40,7 +40,10 @@
       <!-- After link is selected, for response sent by AJAX instead of by html add , remote: true -->
       <% if current_user != @project.owner %>
           <!-- ensure that the reward_id: that is being passed into the pledges_path is the current reward (reward.id) -->
-          <li><%= link_to "Select This Reward", pledges_path(reward_id: reward.id), method: :post %></li>
+          <%= form_tag pledges_path(reward_id: reward.id, project_id: @project), remote: true, method: :post, id: 'rewards-button' do %>
+              <%= submit_tag "Select this reward", id: 'button' %>
+          <% end %>
+
       <% end %>  
     </ul>
 <% end %>
