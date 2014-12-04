@@ -11,14 +11,7 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find(params[:id])
 		@rewards = @project.rewards
-<<<<<<< HEAD
 
-		respond_to do |format|
-			format.js  #allows controller to respond in javascript
-			format.html #allows controller to respond to html
-		end
-=======
->>>>>>> origin/mchau
 	end
 
 	def edit
