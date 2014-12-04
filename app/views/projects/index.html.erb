@@ -45,14 +45,12 @@
             <div class="panel">
               <h6><%= project.name %></h6>
               <p>
-                <!--
                 <%= project.description %>
                 
                 <% if project.owner == current_user %>
                     <p>Pledged: <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %></p>
                     <p>Days to Completion: <%= distance_of_time_in_words_to_now(project.end_date) %> (<%= (project.end_date.to_date - Date.current).to_i %> days)</p>
                 <% end %>
-                -->
               </p>
             </div>
             <% end %>
