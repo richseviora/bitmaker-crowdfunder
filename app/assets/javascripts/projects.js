@@ -10,12 +10,14 @@ $(document).ready(function () {
         // STANDARD - works all the time!
         $.ajax({
             url: '/pledges?reward_id=' + rewardValue,
-            type: 'GET',
+            type: 'POST',
             dataType: 'script'
         }).done(function (data) {
             $('#projects').html(data);
         }).fail(function (error) {
             alert("request failed!");
         });
+    	// $.getScript('/pledges?reward_id=' + rewardValue);
+    	alert('Went through projects.js');
     });
 });

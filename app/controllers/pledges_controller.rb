@@ -6,9 +6,9 @@ class PledgesController < ApplicationController
 		@pledge.amount = Reward.find(params[:reward_id]).amount
 		@pledge.save
 
-		# respond_to do |format|
-  #     		format.html # index.html.erb
-  #     		format.js   # index.js.erb, allows controller to respond to JavaScript
-  #   	end
+		respond_to do |format|
+      		format.html # create.html.erb
+      		format.js   # create.js.erb, allows controller to respond to JavaScript
+    	end
 	end
 end

@@ -1,7 +1,7 @@
-
 <div id="individual_project">
-  <%= render :partial => "/projects/individual_project" %>
+  <%= render :partial => "/projects/individual_project", locals: {project: @project} %>
 </div>
+
 
 <%= link_to "Back", projects_path %>
 
@@ -23,4 +23,5 @@
     <% end %>  
   </ul>
 <% end %>
+
 
