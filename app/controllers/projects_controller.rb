@@ -11,6 +11,11 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find(params[:id])
 		@rewards = @project.rewards
+
+		# respond_to do |format|
+		# 	format.js { render text: 'Hi there' } #allows controller to respond in javascript
+		# 	format.html #allows controller to respond to html
+		# end
 	end
 
 	def edit
@@ -21,7 +26,7 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 
 		if @project.update_attributes(project_params)
-			redirect_to project_path(@project)
+			redirect_to project_path(@project), notice: 'Successfully Selected Reward'
 		else
 			render :edit
 		end
