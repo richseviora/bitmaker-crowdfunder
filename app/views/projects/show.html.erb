@@ -1,4 +1,4 @@
-<%= link_to "Back", projects_path %>
+
 
 <h1><%= @project.name %></h1>
 <% if @project.pledges.where(user: current_user).size > 0 %>
@@ -10,6 +10,7 @@
   <li>Start Date: <%= @project.start_date %></li>
   <li>End Date: <%= @project.end_date %></li>
   <li>Funding Goal: $<%= @project.funding_goal %></li>
+  <li>Category: <%= @project.category.name %></li>
   <li>Created By:
     <% if @project.owner %>
         <%= @project.owner.first_name %>
@@ -26,6 +27,8 @@
       <li><%= link_to "Edit Project", edit_project_path(@project) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Back", projects_path %>
 
 <h2>Rewards</h2>
 

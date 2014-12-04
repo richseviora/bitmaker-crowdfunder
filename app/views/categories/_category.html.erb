@@ -1,0 +1,8 @@
+<li class="category">
+  <h3><%= category.name %></h3>
+  <p>
+    <%= link_to 'Show Projects', category_path(category) %>
+    <%= link_to 'Edit', edit_category_path(category) %>
+    <%= link_to 'Delete', category_path(category), method: 'delete' %>
+  </p>
+</li>

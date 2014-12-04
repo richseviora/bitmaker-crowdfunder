@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :projects
 
+  resources :categories
+
   root 'projects#index'
 
 
