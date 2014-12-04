@@ -17,7 +17,7 @@ $(document).ready(function () {
         }).done(function (data) {
             $('#projects').html(data);
         }).fail(function (error) {
-            alert("request failed!");
+            alert("project.js request failed!");
         });
     	// $.getScript('/pledges?reward_id=' + rewardValue);
     	alert('Went through projects.js');

@@ -16,7 +16,7 @@
     <!-- After link is selected, for response sent by AJAX instead of by html add , remote: true -->
       
 
-      <li><%= form_tag pledges_path(reward_id: reward.id), method: :post, class: 'rewards-form' do %>
+      <li><%= form_tag pledges_path(reward_id: reward.id, project_id: @project), method: :post, class: 'rewards-form' do %>
           <%= submit_tag "Select this reward", id: 'button' %>
           <% end %>
       </li>
