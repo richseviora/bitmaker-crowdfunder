@@ -3,7 +3,7 @@
 <h1><%= @project.name %></h1>
 
 <% if @project.pledges.where(user: current_user).size > 0 %>
-  <h2>You Have Backed This Project for <%= @project.pledges.where(user: current_user).sum('pledges.amount')%></h2>
+  <h2>You Have Backed This Project for <%= number_to_currency(@project.pledges.where(user: current_user).sum('pledges.amount'), precision: 0) %></h2>
 <% end %>
 <ul>
   <li>Description: <%= @project.description %></li>
