@@ -10,7 +10,7 @@ $(document).ready(function () {
         // STANDARD - works all the time!
         $.ajax({
             url: '/pledges?reward_id=' + rewardValue,
-            type: 'POST',
+            type: 'GET',
             dataType: 'script'
         }).done(function (data) {
             $('#projects').html(data);
