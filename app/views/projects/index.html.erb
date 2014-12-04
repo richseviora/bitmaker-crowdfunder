@@ -1,20 +1,4 @@
-<h1>Projects</h1>
-
-<%= link_to "New Project", new_project_path %>
-
-<ul>
-  <% @projects.each do |project| %>
-      <li><%= link_to project.name, "/projects/#{project.id}" %>
-        <% if project.owner == current_user %>
-            Pledged: <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %>, Days to
-            Completion: <%= distance_of_time_in_words_to_now(project.end_date) %>(
-            <%= (project.end_date.to_date - Date.current).to_i %> days)
-        <% end %>
-
-      </li>
-  <% end %>
-</ul>
-
+<!--
 <% if current_user && current_user.pledges.size > 0 %>
     <h3>Total Pledges <%= number_to_currency(current_user.pledges.sum(:amount), precision: 0) %></h3>
     <ul>
@@ -28,3 +12,109 @@
       <% end %>
     </ul>
 <% end %>
+-->
+
+  <div class="row">
+    <div class="large-12 columns">
+ 
+      <div class="hide-for-small">
+        <div id="featured">
+              <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
+               
+          </div>
+        </div>
+ 
+        <div class="row">
+          <div class="small-12 show-for-small"><br>
+            <img src="http://placehold.it/1000x600&text=For Small Screens"/>
+          </div>
+        </div>
+ 
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="large-12 columns">
+      <h2>Projects</h2>
+      <div class="row">
+
+        <% @projects.each do |project| %>
+          <div class="large-3 small-6 columns project-item">
+            <%= link_to "/projects/#{project.id}" do %>
+            <img src="http://placehold.it/250x250&text=Project"/>
+            <div class="panel">
+              <h6><%= project.name %></h6>
+              <p>
+                <!--
+                <%= project.description %>
+                
+                <% if project.owner == current_user %>
+                    <p>Pledged: <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %></p>
+                    <p>Days to Completion: <%= distance_of_time_in_words_to_now(project.end_date) %> (<%= (project.end_date.to_date - Date.current).to_i %> days)</p>
+                <% end %>
+                -->
+              </p>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+ 
+      </div>
+    </div>
+  </div>
+ 
+ 
+ 
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row">
+ 
+     
+ 
+        <div class="large-8 columns">
+          <div class="panel radius">
+ 
+          <div class="row">
+          <div class="large-6 small-6 columns">
+ 
+            <h4>Header</h4><hr/>
+            <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+            </h5>
+ 
+          <div class="show-for-small" align="center">
+            <a href="#" class="small radius button">Call To Action!</a><br>
+ 
+            <a href="#" class="small radius button">Call To Action!</a>
+          </div>
+ 
+          </div>
+          <div class="large-6 small-6 columns">
+ 
+            <p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.
+          </p>
+        </div>
+ 
+        </div>
+        </div>
+        </div>
+ 
+          <div class="large-4 columns hide-for-small">
+ 
+          <h4>Get In Touch!</h4><hr/>
+ 
+          <a class="large button expand" href="#">
+            Call To Action!
+          </a>
+ 
+          <a class="large button expand" href="#">
+            Call To Action!
+          </a>
+ 
+ 
+        </div>
+ 
+     
+ 
+      </div>
+    </div>
+  </div>
