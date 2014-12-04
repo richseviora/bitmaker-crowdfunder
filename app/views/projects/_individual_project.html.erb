@@ -1,0 +1,30 @@
+<h1><%= @project.name %></h1>
+  <% if @project.pledges.where(user: current_user).size > 0 %>
+      <h2>You Have Backed This Project for <%= @project.pledges.where(user: current_user).sum('pledges.amount')
+      %></h2>
+  <% end %>
+  <ul>
+    <li>Description: <%= @project.description %></li>
+    <li>Start Date: <%= @project.start_date %></li>
+    <li>End Date: <%= @project.end_date %></li>
+    <li>Funding Goal: $<%= @project.funding_goal %></li>
+    <li>Total Pledges: <%= number_to_currency(@project.pledges.sum(:amount), precision: 0) %></li>
+    <li>Category: <%= @project.category.name %></li>
+    <li>Created By:
+      <% if @project.owner %>
+          <%= @project.owner.first_name %>
+          <%= @project.owner.last_name %>
+      <% else %>
+          N/A (no user specified)
+      <% end %>
+    </li>
+    <% if current_user == @project.owner %>
+        <li> Days to Completion: <%= distance_of_time_in_words_to_now(@project.end_date) %>(
+          <%= (@project.end_date.to_date - Date.current).to_i %> days)
+        </li>
+        <li><%= link_to "Edit Project", edit_project_path(@project) %></li>
+    <% end %>
+  </ul>
+
+
+  
