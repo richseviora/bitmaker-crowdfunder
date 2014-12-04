@@ -2,6 +2,7 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
+
 // "/pledges?project_id=20&reward_id=44"
 
 
@@ -15,6 +16,7 @@ $(document).ready(function () {
         var myurl = $(this).attr('action');
         $.ajax({
             url: myurl, 
+
             type: 'POST',
             dataType: 'script'
         }).done(function (data) {
@@ -22,7 +24,6 @@ $(document).ready(function () {
         }).fail(function (error) {
             alert("project.js request failed!");
         });
-
     	// END OF STANDARD AJAX REQUEST
     });
 });
