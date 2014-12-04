@@ -13,23 +13,12 @@
     </ul>
 <% end %>
 -->
+ 
+  <div class="row">
+    <div class="large-12 columns">
 
-  <div class="row">
-    <div class="large-12 columns">
- 
-      <div class="hide-for-small">
-        <div id="featured">
-              <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
-               
-          </div>
-        </div>
- 
-    </div>
-  </div>
- 
-  <div class="row">
-    <div class="large-12 columns">
-      <h2>Projects</h2>
+      <h2>All Projects</h2>
+
       <div class="row">
 
         <% @projects.each do |project| %>
@@ -41,19 +30,17 @@
               <p>
                 <%= project.description %>
                 
-                <% if project.owner == current_user %>
-                    <p>
-                      Pledged: 
-                      <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %>
-                       / 
-                      <%= number_to_currency(project.funding_goal) %>
-                    </p>
-                    <p>
-                      Days to Completion: 
-                      <%= distance_of_time_in_words_to_now(project.end_date) %> 
-                      (<%= (project.end_date.to_date - Date.current).to_i %> days)
-                    </p>
-                <% end %>
+                <p>
+                  Pledged: 
+                  <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %>
+                   / 
+                  <%= number_to_currency(project.funding_goal) %>
+                </p>
+                <p>
+                  Days to Completion: 
+                  <%= distance_of_time_in_words_to_now(project.end_date) %> 
+                  (<%= (project.end_date.to_date - Date.current).to_i %> days)
+                </p>
 
               </p>
             </div>
