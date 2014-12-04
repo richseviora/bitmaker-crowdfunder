@@ -41,5 +41,16 @@ if Rails.env == 'development'
     random_user.pledges.create(amount: random_reward.amount, reward: random_reward)
   end
 
+  500.times do
+    author = User.offset(rand(User.count)).first
+    subject = User.offset(rand(User.count)).first
+    Comment.create(user: author, commentable:subject, text: Faker::Lorem.sentence)
+  end
+
+  500.times do
+    author = User.offset(rand(User.count)).first
+    project = Project.offset(rand(Project.count)).first
+    Comment.create(user: author, commentable:project, text: Faker::Lorem.sentence)
+  end
 
 end

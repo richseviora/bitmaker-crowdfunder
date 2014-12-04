@@ -58,3 +58,7 @@ Gemfile.lock
 .idea/dataSources.local.xml
 
 .idea/dataSources.local.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
