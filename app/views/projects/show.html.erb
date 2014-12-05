@@ -1,41 +1,31 @@
+<div class="row">
+  <div class="large-12 columns">
+    <div id="individual_project">
+      <%= render :partial => "/projects/individual_project" %>
+    </div>
+  </div>
+</div>
 
+<div class="row">
+  <div class="large-12 columns">
+    <h2>Rewards</h2>
 
-<h1><%= @project.name %></h1>
-<% if @project.pledges.where(user: current_user).size > 0 %>
-    <h2>You Have Backed This Project for <%= @project.pledges.where(user: current_user).sum('pledges.amount')
-    %></h2>
-<% end %>
-<ul>
-  <li>Description: <%= @project.description %></li>
-  <li>Start Date: <%= @project.start_date %></li>
-  <li>End Date: <%= @project.end_date %></li>
-  <li>Funding Goal: $<%= @project.funding_goal %></li>
-  <li>Category: <%= @project.category.name %></li>
-  <li>Created By:
-    <% if @project.owner %>
-        <%= @project.owner.first_name %>
-        <%= @project.owner.last_name %>
-    <% else %>
-        N/A (no user specified)
+    <% @rewards.each do |reward| %>
+        <ul>
+          <li>Title: <%= reward.title %></li>
+          <li>Description: <%= reward.description %></li>
+          <li>Amount: $<%= reward.amount %></li>
+          <!-- After link is selected, for response sent by AJAX instead of by html add , remote: true -->
+          <% if current_user != @project.owner %>
+            <!-- ensure that the reward_id: that is being passed into the pledges_path is the current reward (reward.id) -->
+            <%= form_tag pledges_path(reward_id: reward.id, project_id: @project), remote: true, method: :post, id: 'rewards-button' do %>
+                <%= submit_tag "Select this reward", id: 'button', class: 'button' %>
+            <% end %>
+          <% else %>
+            <li>Number of Unique Backers: <%= reward.pledges.select(:user_id).count %>!!!</li>
+          <% end %>  
+        </ul>
     <% end %>
-  </li>
-  <% if current_user == @project.owner %>
-      <li> Total Pledges: <%= number_to_currency(@project.pledges.sum(:amount), precision: 0) %></li>
-      <li> Days to Completion: <%= distance_of_time_in_words_to_now(@project.end_date) %>(
-        <%= (@project.end_date.to_date - Date.current).to_i %> days)
-      </li>
-      <li><%= link_to "Edit Project", edit_project_path(@project) %></li>
-  <% end %>
-</ul>
+  </div>
+</div>
 
-<%= link_to "Back", projects_path %>
-
-<h2>Rewards</h2>
-
-<% @rewards.each do |reward| %>
-    <ul>
-      <li>Title: <%= reward.title %></li>
-      <li>Description: <%= reward.description %></li>
-      <li>Amount: $<%= reward.amount %></li>
-    </ul>
-<% end %>
