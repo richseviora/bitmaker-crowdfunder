@@ -11,6 +11,7 @@ class PledgesController < ApplicationController
 		@pledge.amount = Reward.find(params[:reward_id]).amount
 		#assigning the pledge to the project
 		@pledge.project = @project
+
 		@pledge.save
 
 		 respond_to do |format|

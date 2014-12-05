@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203202021) do
+ActiveRecord::Schema.define(version: 20141204212616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20141203202021) do
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
+  create_table "comments", force: true do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pledges", force: true do |t|
     t.integer  "amount"

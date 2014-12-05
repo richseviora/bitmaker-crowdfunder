@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find(params[:id])
 		@rewards = @project.rewards
-
+		@comment = Comment.new
 
 	end
 
