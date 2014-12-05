@@ -1,3 +1,4 @@
-<ul><% @tags.each do |tag| %>
-   <li><%= link_to tag.name, tag_path(tag) %></li>
-<% end %></ul>
+<ul id="tags">
+  <%= render partial: 'tags/tag', collection: @tags %>
+</ul>
+<%= paginate @tags %>

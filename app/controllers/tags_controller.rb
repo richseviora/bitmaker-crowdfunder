@@ -8,6 +8,7 @@ class TagsController < ApplicationController
   end
 
   def index
-    @tags = Project.tag_counts
+    @tags = Project.tag_counts.order(taggings_count: :desc).page(params[:page])
+    respond_to :js, :html
   end
 end
