@@ -16,12 +16,15 @@
     <div class="large-12 columns">
 
       <h2>All Projects</h2>
+      <h3><small><%= page_entries_info @projects %></small></h3>
 
       <div class="row">
 
         <%= paginate @projects %>
         <ul id="projects">
-        <%= render "project" %>
+
+        <%= render @projects  %>
+
         </ul>
       </div>
     </div>

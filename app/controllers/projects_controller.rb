@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 	before_action :user_ownership, only: [:edit, :update]
 
 	def index
-		@projects = Project.order(:name).page(params[:page])
+		@projects = Project.order('projects.created_at DESC').page(params[:page])
 
 		respond_to do |format|
 			format.js
