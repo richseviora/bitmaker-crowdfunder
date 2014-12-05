@@ -1,0 +1,2 @@
+$('.pagination').html("<%= j(paginate @tags) %>");
+$('#tags').append("<%= j(render partial: 'tags/tag', collection: @tags) %>");

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   concern :comments do
     resources :comments, only: [:create]
   end
+  resources :tags, only: [:index, :show]
 
   resources :users, only: [:new, :create, :show], concerns: :comments
   resources :projects, concerns: :comments

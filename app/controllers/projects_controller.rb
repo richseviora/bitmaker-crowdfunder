@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :category_id, rewards_attributes: [:title, :description, :amount, :id, :_destroy])
+		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :category_id, :tag_list, rewards_attributes: [:title, :description, :amount, :id, :_destroy])
 	end
 
 	# this private method checks to see if the current user owns a project

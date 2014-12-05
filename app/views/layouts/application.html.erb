@@ -32,13 +32,15 @@
     <ul class="left">
       <li><%= link_to "All Projects", projects_path %></li>
       <li><%= link_to "Categories", categories_path %></li>
+      <li><%= link_to "Tags", tags_path %></li>
     </ul>
 
     <ul class="right">
       <% if current_user %>
           <li class="has-dropdown">
-            <%= link_to current_user.name, user_path(current_user), class: 'accessibility foundicon-blind' %>
+            <a href="#" class="accessibility foundicon-blind"><%= current_user.name %></a>
             <ul class="dropdown">
+              <li><%= link_to 'My Profile', user_path(current_user) %></li>
               <li><a href="#">My Projects</a></li>
               <li><a href="#">My Pledges</a></li>
               <li><%= link_to "Create Project", new_project_path %></li>
