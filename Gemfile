@@ -49,3 +49,6 @@ gem 'cocoon', '>= 1.2.0' # Cocoon to have various number of nested forms
 gem 'kaminari'
 
 gem 'foundation-rails' # Foundation for front-end framework
+
+#Enables Tagging
+gem 'acts-as-taggable-on', '~> 3.4'
