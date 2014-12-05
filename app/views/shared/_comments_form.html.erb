@@ -1,0 +1,9 @@
+<%= form_tag polymorphic_path([commentable, Comment]), remote: true do %>
+    <div id="comment_form_errors">
+      <% if @comment.errors %>
+          <%= render partial: 'comments/comment_errors' %>
+      <% end %>
+    </div>
+    <%= text_field_tag :text, nil, placeholder: 'Write your comment here' %>
+    <%= submit_tag 'Submit', class: 'button' %>
+<% end %>

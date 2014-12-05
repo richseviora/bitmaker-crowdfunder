@@ -1,0 +1,7 @@
+<% if @comment.errors.empty? %>
+$('#comments').append("<%= j(render @comment ) %>");
+$('#comment_form_errors').empty();
+$('#text').val('');
+<% else %>
+$('#comment_form_errors').html("<%= j(render partial: 'comments/comment_errors') %>");
+<% end %>

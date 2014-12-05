@@ -37,7 +37,7 @@
     <ul class="right">
       <% if current_user %>
           <li class="has-dropdown">
-            <a href="#" class="accessibility foundicon-blind"><%= current_user.first_name %> <%= current_user.last_name %></a>
+            <%= link_to current_user.name, user_path(current_user), class: 'accessibility foundicon-blind' %>
             <ul class="dropdown">
               <li><a href="#">My Projects</a></li>
               <li><a href="#">My Pledges</a></li>
