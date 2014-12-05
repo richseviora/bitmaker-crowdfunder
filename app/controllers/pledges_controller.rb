@@ -12,6 +12,7 @@ class PledgesController < ApplicationController
 		@pledge.amount = Reward.find(params[:reward_id]).amount
 		#assigning the pledge to the project
 		@pledge.project = @project
+
 		@pledge.save
 
 	 	if @project.pledges.sum(:amount) >= @project.funding_goal 
