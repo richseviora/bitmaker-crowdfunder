@@ -47,5 +47,5 @@ gem 'faker'
 
 gem 'cocoon', '>= 1.2.0' # Cocoon to have various number of nested forms
 gem 'kaminari'
-
+gem 'pry-rails'
 gem 'foundation-rails' # Foundation for front-end framework
