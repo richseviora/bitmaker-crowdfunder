@@ -12,6 +12,10 @@
   <li>Funding Goal: $<%= @project.funding_goal %></li>
   <li>Total Pledges: <%= number_to_currency(@project.pledges.sum(:amount), precision: 0) %></li>
   <li>Category: <%= @project.category.name %></li>
+  <li>Tags: <% @project.tags.each do |tag| %>
+            <%= link_to tag.name, tag_path(tag) %>
+        <% end %>
+  </li>
   <li>Created By:
     <% if @project.owner %>
         <%= link_to @project.owner.name, user_path(@project.owner) %>
