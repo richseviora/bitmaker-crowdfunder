@@ -12,9 +12,7 @@ class PledgesController < ApplicationController
 		#assigning the pledge to the project
 		@pledge.project = @project
 
-		1.times do # For some reason it was saving the pledge 5 times????
-			@pledge.save
-		end
+		@pledge.save
 
 		 respond_to do |format|
 		 	format.js  #allows controller to respond in javascript

@@ -5,17 +5,16 @@
 
 // "/pledges?project_id=20&reward_id=44"
 
-
-// when the DOM loads
 $(document).ready(function () {
     // gets rewards-form (class) from show.html.erb (reward form)
-    $('.rewards-form').submit(function (event) {
+    $('.reward-button').submit(function (event) {
         // prevent the pledeges/create.html.erb from loading after pressing button
         event.preventDefault();
+        console.log('Beginning Click Execution');
         // STANDARD - works all the time!
         var myurl = $(this).attr('action');
         $.ajax({
-            url: myurl, 
+            url: myurl,
 
             type: 'POST',
             dataType: 'script'
