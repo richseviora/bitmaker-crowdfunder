@@ -17,11 +17,12 @@
           <li>Amount: $<%= reward.amount %></li>
           <!-- After link is selected, for response sent by AJAX instead of by html add , remote: true -->
           <% if current_user != @project.owner %>
-              <!-- ensure that the reward_id: that is being passed into the pledges_path is the current reward (reward.id) -->
-              <%= form_tag pledges_path(reward_id: reward.id, project_id: @project), remote: true, method: :post, id: 'rewards-button' do %>
-                  <%= submit_tag "Select this reward", id: 'button', class: 'button' %>
-              <% end %>
-
+            <!-- ensure that the reward_id: that is being passed into the pledges_path is the current reward (reward.id) -->
+            <%= form_tag pledges_path(reward_id: reward.id, project_id: @project), remote: true, method: :post, id: 'rewards-button' do %>
+                <%= submit_tag "Select this reward", id: 'button', class: 'button' %>
+            <% end %>
+          <% else %>
+            <li>Number of Unique Backers: <%= reward.pledges.select(:user_id).count %>!!!</li>
           <% end %>  
         </ul>
     <% end %>
