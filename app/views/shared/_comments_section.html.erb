@@ -1,0 +1,8 @@
+<div id="comments" class="large-12 columns">
+  <h3>Comments</h3>
+  <% comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+
+</div>
+<%= render partial: 'shared/comments_form', locals: {commentable: commentable } %>

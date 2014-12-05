@@ -27,5 +27,6 @@
         </ul>
     <% end %>
   </div>
+  <%= render partial: 'shared/comments_section', locals: {comments: @project.comments, commentable: @project} %>
 </div>
 
