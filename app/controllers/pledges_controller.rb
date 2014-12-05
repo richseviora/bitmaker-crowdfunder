@@ -11,7 +11,10 @@ class PledgesController < ApplicationController
 		@pledge.amount = Reward.find(params[:reward_id]).amount
 		#assigning the pledge to the project
 		@pledge.project = @project
-		@pledge.save
+
+		1.times do # For some reason it was saving the pledge 5 times????
+			@pledge.save
+		end
 
 		 respond_to do |format|
 		 	format.js  #allows controller to respond in javascript
