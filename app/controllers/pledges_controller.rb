@@ -15,17 +15,17 @@ class PledgesController < ApplicationController
 
 		@pledge.save
 
-	 	if @project.pledges.sum(:amount) >= @project.funding_goal 
+		respond_to do |format|
+		 	format.js  #allows controller to respond in javascript
+		 	format.html { redirect_to project_url(params[:project_id]) } #allows controller to respond to html and sends it back to the correct project
+		end
+
+		if @project.pledges.sum(:amount) >= @project.funding_goal 
 	 		# binding.pry
 	 		@project.pledges.map{|x| x.user }.each do |backer|
 	 			UserMailer.goal_met_email(backer, @project).deliver
 	 			puts "MAIL SENT"
 	 		end
 	 	end
-
-		respond_to do |format|
-		 	format.js  #allows controller to respond in javascript
-		 	format.html { redirect_to project_url(params[:project_id]) } #allows controller to respond to html and sends it back to the correct project
-		end
 	end
 end
