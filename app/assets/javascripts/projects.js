@@ -10,16 +10,12 @@ $(document).ready(function () {
     $('.reward-button').submit(function (event) {
         // prevent the pledeges/create.html.erb from loading after pressing button
         event.preventDefault();
-        console.log('Beginning Click Execution');
         // STANDARD - works all the time!
         var myurl = $(this).attr('action');
         $.ajax({
             url: myurl,
-
             type: 'POST',
             dataType: 'script'
-        }).done(function (data) {
-            $('#projects').html(data);
         }).fail(function (error) {
             alert("project.js request failed!");
         });
