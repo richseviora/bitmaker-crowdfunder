@@ -1,0 +1,26 @@
+<% @projects.each do |project| %>
+    <div class="large-3 small-6 columns project-item">
+      <%= link_to "/projects/#{project.id}" do %>
+          <img src="http://placehold.it/250x250&text=Project"/>
+          <div class="panel">
+            <h6><%= project.name %></h6>
+            <p>
+              <%= project.description %>
+
+            <p>
+              Pledged:
+              <%= number_to_currency(project.pledges.sum(:amount), precision: 0) %>
+              /
+              <%= number_to_currency(project.funding_goal) %>
+            </p>
+            <p>
+              Days to Completion:
+              <%= distance_of_time_in_words_to_now(project.end_date) %>
+              (<%= (project.end_date.to_date - Date.current).to_i %> days)
+            </p>
+
+            </p>
+          </div>
+      <% end %>
+    </div>
+<% end %>

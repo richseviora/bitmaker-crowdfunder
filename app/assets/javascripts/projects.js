@@ -26,4 +26,12 @@ $(document).ready(function () {
         });
     	// END OF STANDARD AJAX REQUEST
     });
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > $(document).height() - $(window).height() - 25)
+            console.log($('.pagination span.next').children().attr('href'));
+            $.getScript($('.pagination span.next').children().attr('href'));
+    });
+
 });
+

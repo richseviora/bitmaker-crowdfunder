@@ -1,0 +1,3 @@
+$('.pagination').replaceWith('<%= j paginate(@projects) %>');
+// looks at the <ul id="projects"> in the views/projects/index.html.erb file to append the newly rendered projects.
+$('#projects').append('<%= j render(@projects) %>');
