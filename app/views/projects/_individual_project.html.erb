@@ -14,8 +14,7 @@
   <li>Category: <%= @project.category.name %></li>
   <li>Created By:
     <% if @project.owner %>
-        <%= @project.owner.first_name %>
-        <%= @project.owner.last_name %>
+        <%= link_to @project.owner.name, user_path(@project.owner) %>
     <% else %>
         N/A (no user specified)
     <% end %>
