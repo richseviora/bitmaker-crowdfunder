@@ -23,6 +23,7 @@ if Rails.env == 'development'
     Category.create(name: Faker::Commerce.department + time.to_s)
   end
 
+
   1000.times do
     random_user = User.offset(rand(User.count)).first
     random_category = Category.offset(rand(Category.count)).first
@@ -33,6 +34,10 @@ if Rails.env == 'development'
     Faker::Number.between(1, 5).times do
       project.rewards.create(title: Faker::Commerce.product_name, description: Faker::Company.bs, amount: Faker::Number.positive(1, project.funding_goal))
     end
+    Faker::Number.between(1, 5).times do
+      project.tag_list.add(Faker::Lorem.word)
+      project.save
+    end
   end
 
   1000.times do
@@ -40,6 +45,19 @@ if Rails.env == 'development'
     random_reward = Reward.offset(rand(Reward.count)).first
     random_user.pledges.create(amount: random_reward.amount, reward: random_reward)
   end
+
+  500.times do
+    author = User.offset(rand(User.count)).first
+    subject = User.offset(rand(User.count)).first
+    Comment.create(user: author, commentable:subject, text: Faker::Lorem.sentence)
+  end
+
+  500.times do
+    author = User.offset(rand(User.count)).first
+    project = Project.offset(rand(Project.count)).first
+    Comment.create(user: author, commentable:project, text: Faker::Lorem.sentence)
+  end
+
 
 
 end

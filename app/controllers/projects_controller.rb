@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 	before_action :user_ownership, only: [:edit, :update]
 
 	def index
-		@projects = Project.order(:name).page(params[:page])
+		@projects = Project.order('projects.created_at DESC').page(params[:page])
 
 		respond_to do |format|
 			format.js
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find(params[:id])
 		@rewards = @project.rewards
-
+		@comment = Comment.new
 
 	end
 
@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :category_id, rewards_attributes: [:title, :description, :amount, :id, :_destroy])
+		params.require(:project).permit(:name, :description, :start_date, :end_date, :funding_goal, :category_id, :tag_list, rewards_attributes: [:title, :description, :amount, :id, :_destroy])
 	end
 
 	# this private method checks to see if the current user owns a project

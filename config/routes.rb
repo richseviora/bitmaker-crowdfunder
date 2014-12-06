@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
-  resources :users
+
+  concern :comments do
+    resources :comments, only: [:create]
+  end
+  resources :tags, only: [:index, :show]
+
+  resources :users, only: [:new, :create, :show], concerns: :comments
+  resources :projects, concerns: :comments
 
   resources :sessions, only: [:index, :create, :destroy, :new]
-
-  resources :projects
-
 
   resources :pledges, only: [:create]
 
   resources :categories
+
+
 
   root 'projects#index'
 

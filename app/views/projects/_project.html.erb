@@ -1,6 +1,6 @@
-<% @projects.each do |project| %>
+
     <div class="large-3 small-6 columns project-item">
-      <%= link_to "/projects/#{project.id}" do %>
+      <%= link_to project_path(project.id) do %>
           <img src="http://placehold.it/250x250&text=Project"/>
           <div class="panel">
             <h6><%= project.name %></h6>
@@ -23,4 +23,3 @@
           </div>
       <% end %>
     </div>
-<% end %>
