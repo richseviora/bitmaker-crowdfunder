@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-if Rails.env == 'development'
+ if Rails.env == 'development'
 
 
   10.times do
@@ -60,4 +60,4 @@ if Rails.env == 'development'
 
 
 
-end
+ end

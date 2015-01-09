@@ -47,6 +47,7 @@ gem 'faker'
 
 gem 'cocoon', '>= 1.2.0' # Cocoon to have various number of nested forms
 
+
 gem 'pry-rails'
 gem 'foundation-rails' # Foundation for front-end framework
 
@@ -54,3 +55,4 @@ gem 'kaminari' # for Pagination and infinite scroll
 
 #Enables Tagging
 gem 'acts-as-taggable-on', '~> 3.4'
+
