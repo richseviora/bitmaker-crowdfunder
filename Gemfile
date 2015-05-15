@@ -31,8 +31,9 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# User Sorcery for Authentication
-gem 'sorcery', '0.8.6'
+# Use Sorcery for Authentication
+gem 'sorcery', '~> 0.8.6'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -46,15 +47,10 @@ gem 'sorcery', '0.8.6'
 gem 'faker'
 
 gem 'cocoon', '>= 1.2.0' # Cocoon to have various number of nested forms
-<<<<<<< HEAD
+
 gem 'kaminari'
 gem 'pry-rails'
 gem 'foundation-rails' # Foundation for front-end framework
-=======
-gem 'kaminari' # for Pagination and infinite scroll
-
-gem 'foundation-rails' # Foundation for front-end framework
-
 #Enables Tagging
 gem 'acts-as-taggable-on', '~> 3.4'
->>>>>>> b1d03a1e1230375009caf29d3fa5a2d00ff5fe83
+
